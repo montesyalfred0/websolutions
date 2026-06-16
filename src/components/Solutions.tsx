@@ -9,23 +9,26 @@ const solutions = [
   {
     title: "Páginas Web Profesionales",
     description:
-      "Sitios web modernos, responsivos y optimizados para posicionar tu negocio en línea. Diseñados para convertir visitantes en clientes.",
+      "Sitios web modernos, responsivos y optimizados para SEO. Diseñados para posicionar tu negocio en línea y convertir visitantes en clientes desde cualquier dispositivo.",
     gradient: "from-blue-600 to-cyan-500",
     videoSrc: "/videos/web-pages-demo.mp4",
+    videoAlt: "Demostración de página web profesional responsiva",
   },
   {
     title: "Registro de Datos",
     description:
-      "Sistemas de captura y gestión de datos con formularios inteligentes, almacenamiento seguro y acceso inmediato a la información.",
+      "Sistemas de captura y gestión de datos con formularios inteligentes, almacenamiento seguro en la nube y acceso inmediato a la información de tu negocio desde cualquier lugar.",
     gradient: "from-purple-600 to-pink-500",
     videoSrc: "/videos/data-registration-demo.mp4",
+    videoAlt: "Demostración de sistema de registro y gestión de datos",
   },
   {
     title: "Reportes y Automatización",
     description:
-      "Automatiza tus procesos repetitivos, genera reportes automáticos y toma decisiones basadas en datos en tiempo real.",
+      "Automatiza tus procesos repetitivos, genera reportes automáticos inteligentes y toma decisiones basadas en datos en tiempo real para hacer crecer tu empresa.",
     gradient: "from-emerald-600 to-teal-500",
     videoSrc: "/videos/reports-automation-demo.mp4",
+    videoAlt: "Demostración de automatización de reportes y procesos",
   },
 ];
 
@@ -85,7 +88,7 @@ function SolutionCard({
                 d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
               />
             </svg>
-            <p className="text-sm font-medium">Video demo en preparación</p>
+            <p className="text-sm font-medium">{solution.title} — Video demo</p>
           </div>
         ) : (
           <>
@@ -102,6 +105,8 @@ function SolutionCard({
               loop
               muted
               playsInline
+              preload="none"
+              aria-label={solution.videoAlt}
             />
           </>
         )}
@@ -143,7 +148,7 @@ export default function Solutions() {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Cada solución está diseñada a la medida de tu negocio,
-            combinando tecnología moderna con experiencia real.
+            combinando tecnología moderna con experiencia real en el mercado latinoamericano.
           </p>
         </motion.div>
 

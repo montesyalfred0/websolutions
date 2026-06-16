@@ -45,8 +45,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Creamos páginas web, aplicaciones web y automatizaciones que
-          optimizan tus procesos y disparan tus resultados.
+          Creamos páginas web profesionales, aplicaciones web a medida y automatizaciones inteligentes que optimizan tus procesos y disparan tus resultados en México y toda Latinoamérica.
         </motion.p>
 
         <motion.div
@@ -80,6 +79,7 @@ export default function Hero() {
           <button
             onClick={() => scrollTo("#services")}
             className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Ver servicios"
           >
             <svg
               className="w-6 h-6 animate-bounce"

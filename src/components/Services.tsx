@@ -8,19 +8,19 @@ const services = [
   {
     title: "Páginas Web Profesionales",
     description:
-      "Sitios web modernos, rápidos y optimizados para SEO que representan la identidad de tu marca y convierten visitantes en clientes.",
+      "Creamos sitios web modernos, rápidos y optimizados para SEO que representan la identidad de tu marca. Diseñamos páginas web responsivas que convierten visitantes en clientes y posicionan tu negocio en los primeros resultados de Google.",
     icon: Globe,
   },
   {
     title: "Aplicaciones Web a Medida",
     description:
-      "Sistemas personalizados: paneles de control, CRMs, plataformas SaaS y herramientas diseñadas específicamente para tu negocio.",
+      "Desarrollamos sistemas personalizados como paneles de control empresarial, CRMs, plataformas SaaS y herramientas web diseñadas específicamente para optimizar los procesos de tu negocio en México y Latinoamérica.",
     icon: Monitor,
   },
   {
     title: "Automatización de Procesos",
     description:
-      "Identificamos tareas repetitivas en tu negocio y las automatizamos para ahorrar tiempo, reducir errores y escalar tus operaciones.",
+      "Identificamos tareas repetitivas en tu empresa y las automatizamos para ahorrar tiempo, reducir errores humanos y escalar tus operaciones. Transformamos procesos manuales en flujos inteligentes y eficientes.",
     icon: Cog,
   },
 ];
@@ -82,7 +82,7 @@ export default function Services() {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Ofrecemos servicios completos de desarrollo web para llevar tu
-            empresa al siguiente nivel digital.
+            empresa al siguiente nivel digital en toda Latinoamérica.
           </p>
         </motion.div>
 

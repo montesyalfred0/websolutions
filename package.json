@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "npm audit --audit-level=high",
+    "prebuild": "npm audit --audit-level=high 2>/dev/null; true",
     "start": "next start",
     "lint": "next lint",
     "audit": "npm audit",

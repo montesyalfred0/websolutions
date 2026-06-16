@@ -39,7 +39,15 @@ export function formatWhatsAppMessage(data: {
   return encodeURIComponent(lines.join("\n"));
 }
 
-export function openWhatsApp(phone: string, text: string) {
+export function openWhatsApp(phone: string, text: string): boolean {
   const url = `https://wa.me/${phone}?text=${text}`;
-  window.open(url, "_blank", "noopener,noreferrer");
+  const win = window.open(url, "_blank", "noopener,noreferrer");
+  if (!win || win.closed || typeof win.closed === "undefined") {
+    return false;
+  }
+  return true;
+}
+
+export function getWhatsAppUrl(phone: string, text: string): string {
+  return `https://wa.me/${phone}?text=${text}`;
 }

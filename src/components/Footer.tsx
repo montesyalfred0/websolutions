@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const footerLinks = [
   { href: "#services", label: "Servicios" },
@@ -57,6 +57,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-3"
+                  aria-label="Contactar por WhatsApp"
                 >
                   <svg
                     className="w-5 h-5"
@@ -70,37 +71,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:montesyalfred0@gmail.com"
+                  href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-3"
+                  aria-label="Enviar correo electrónico"
                 >
                   <Mail className="w-5 h-5" />
-                  montesyalfred0@gmail.com
+                  {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-muted-foreground text-center sm:text-left">
+        <div className="mt-14 pt-8 border-t border-border">
+          <p className="text-sm text-muted-foreground text-center">
             © {new Date().getFullYear()} WebSolutions. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-5">
-            <a
-              href="#"
-              className="text-muted-foreground hover:text-foreground transition-all hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="text-muted-foreground hover:text-foreground transition-all hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
         </div>
       </div>
     </footer>

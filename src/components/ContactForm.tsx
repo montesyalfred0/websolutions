@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-import { formatWhatsAppMessage, openWhatsApp } from "@/lib/utils";
+import { formatWhatsAppMessage, openWhatsApp, getWhatsAppUrl } from "@/lib/utils";
 
 const services = [
   "Página Web",
@@ -74,6 +74,15 @@ export default function ContactForm() {
   const [form, setForm] = useState(initialForm);
   const [sending, setSending] = useState(false);
   const [rateError, setRateError] = useState("");
+  const [popupBlocked, setPopupBlocked] = useState(false);
+
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+
+  const whatsAppUrl = useCallback(() => {
+    if (!phone) return "";
+    const text = formatWhatsAppMessage(form);
+    return getWhatsAppUrl(phone, text);
+  }, [form, phone]);
 
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
@@ -90,23 +99,29 @@ export default function ContactForm() {
       }
 
       setRateError("");
+      setPopupBlocked(false);
       setSending(true);
       recordSubmission();
 
-      const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
       if (!phone) {
         setSending(false);
         return;
       }
       const text = formatWhatsAppMessage(form);
-      openWhatsApp(phone, text);
+      const opened = openWhatsApp(phone, text);
+
+      if (!opened) {
+        setPopupBlocked(true);
+        setSending(false);
+        return;
+      }
 
       setTimeout(() => {
         setSending(false);
         setForm(initialForm);
       }, 5000);
     },
-    [form]
+    [form, phone]
   );
 
   const updateField = (field: string, value: string) => {
@@ -132,8 +147,8 @@ export default function ContactForm() {
             <span className="text-gradient">transformar tu negocio</span>?
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Cuéntanos sobre tu proyecto y te enviaremos una propuesta
-            personalizada.
+            Cuéntanos sobre tu proyecto de desarrollo web y te enviaremos una propuesta
+            personalizada sin compromiso.
           </p>
         </motion.div>
 
@@ -242,6 +257,23 @@ export default function ContactForm() {
               <p className="text-sm text-red-500 text-center bg-red-500/10 rounded-xl px-4 py-3">
                 {rateError}
               </p>
+            )}
+
+            {popupBlocked && (
+              <div className="text-sm text-center bg-yellow-500/10 rounded-xl px-4 py-3 space-y-2">
+                <p className="text-yellow-500">
+                  El navegador bloqueó la ventana emergente.
+                </p>
+                <a
+                  href={whatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                >
+                  <MessageCircle size={16} />
+                  Haz clic aquí para abrir WhatsApp manualmente
+                </a>
+              </div>
             )}
 
             <button

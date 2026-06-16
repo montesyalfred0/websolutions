@@ -75,10 +75,10 @@ export default function Process() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Cómo <span className="text-gradient">trabajamos</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Un proceso claro y transparente para llevar tu proyecto de la idea a
-            la realidad.
-          </p>
+      <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+        Un proceso claro y transparente para llevar tu proyecto de desarrollo web de la idea a
+        la realidad.
+      </p>
         </motion.div>
 
         <div className="relative">
